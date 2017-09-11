@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Configurations\ApplicationConfig.cs" />
+    <Compile Include="Configurations\HistoryConfig.cs" />
+    <Compile Include="Configurations\HitNumber.cs" />
+    <Compile Include="Configurations\ShuffleConfig.cs" />
+    <Compile Include="Logs\Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +58,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configs\" />
+    <Folder Include="Configurations\Verify\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
