@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBingo", "iBingo\iBingo.csproj", "{71C0A880-09B9-4E1B-958A-A7705A1BA059}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{993B9065-E948-48B0-86F5-B0CEE96B124B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{185E82CA-9901-4525-A9A5-38F3AD68744F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setups", "Setups", "{AC4E45F7-DA4E-481C-9ED2-B3ADCF896C73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBingo", "src\iBingo\iBingo.csproj", "{71C0A880-09B9-4E1B-958A-A7705A1BA059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBingo.Domains", "src\iBingo.Domains\iBingo.Domains.csproj", "{248282D8-08B9-40B0-84F1-E568051F5A97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBingo.Presentations", "src\iBingo.Presentations\iBingo.Presentations.csproj", "{61A3E0EE-3F50-4B2C-BF66-44E457DC5F2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBingo.Tests", "Tests\iBingo.Tests\iBingo.Tests.csproj", "{9420D978-AE7D-4CA5-9948-7FF9F4D2561B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +27,27 @@ Global
 		{71C0A880-09B9-4E1B-958A-A7705A1BA059}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71C0A880-09B9-4E1B-958A-A7705A1BA059}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71C0A880-09B9-4E1B-958A-A7705A1BA059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{248282D8-08B9-40B0-84F1-E568051F5A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{248282D8-08B9-40B0-84F1-E568051F5A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{248282D8-08B9-40B0-84F1-E568051F5A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{248282D8-08B9-40B0-84F1-E568051F5A97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A3E0EE-3F50-4B2C-BF66-44E457DC5F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A3E0EE-3F50-4B2C-BF66-44E457DC5F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A3E0EE-3F50-4B2C-BF66-44E457DC5F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A3E0EE-3F50-4B2C-BF66-44E457DC5F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9420D978-AE7D-4CA5-9948-7FF9F4D2561B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9420D978-AE7D-4CA5-9948-7FF9F4D2561B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9420D978-AE7D-4CA5-9948-7FF9F4D2561B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9420D978-AE7D-4CA5-9948-7FF9F4D2561B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71C0A880-09B9-4E1B-958A-A7705A1BA059} = {993B9065-E948-48B0-86F5-B0CEE96B124B}
+		{248282D8-08B9-40B0-84F1-E568051F5A97} = {993B9065-E948-48B0-86F5-B0CEE96B124B}
+		{61A3E0EE-3F50-4B2C-BF66-44E457DC5F2C} = {993B9065-E948-48B0-86F5-B0CEE96B124B}
+		{9420D978-AE7D-4CA5-9948-7FF9F4D2561B} = {185E82CA-9901-4525-A9A5-38F3AD68744F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EC943F6-1636-47CC-B442-E25B35EC00D9}

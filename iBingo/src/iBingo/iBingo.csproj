@@ -93,5 +93,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iBingo.Domains\iBingo.Domains.csproj">
+      <Project>{248282d8-08b9-40b0-84f1-e568051f5a97}</Project>
+      <Name>iBingo.Domains</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBingo.Presentations\iBingo.Presentations.csproj">
+      <Project>{61a3e0ee-3f50-4b2c-bf66-44e457dc5f2c}</Project>
+      <Name>iBingo.Presentations</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
