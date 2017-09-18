@@ -9,8 +9,6 @@
 
     public sealed class DataStore : IDataStore
     {
-        private object _lockHitNumbers = new object();
-
         public DataStore(ApplicationConfig applicationConfig, HistoryConfig historyConfig)
         {
             Config = applicationConfig;
@@ -18,9 +16,6 @@
             HitNumbers = historyConfig != null
                 ? historyConfig.HitNumbers.Select(x => new NumberData(x.Number, true)).ToObservableCollection()
                 : new ObservableCollection<NumberData>();
-
-            BindingOperations.EnableCollectionSynchronization(HitNumbers, _lockHitNumbers);
-                
         }
 
         public ApplicationConfig Config { get; }

@@ -84,6 +84,7 @@
     <Compile Include="Services\IDataStore.cs" />
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\IServicesProvider.cs" />
+    <Compile Include="Utility\ShuffleValues.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iBingo.Domains\iBingo.Domains.csproj">
@@ -95,8 +96,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utility\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
