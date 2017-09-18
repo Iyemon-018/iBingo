@@ -27,8 +27,9 @@ namespace iBingo.Views
         {
             InitializeComponent();
 
+            // TODO ここはあとでConfig を読み込んで設定する。
             DataContext = new ShellViewModel(null, null,
-                new DataStore(new ApplicationConfig {Shuffle = new ShuffleConfig {Minimum = 0, Maximum = 99,}}, null));
+                new DataStore(new ApplicationConfig { Shuffle = new ShuffleConfig { Minimum = 1, Maximum = 75, } }, null));
         }
     }
 }
