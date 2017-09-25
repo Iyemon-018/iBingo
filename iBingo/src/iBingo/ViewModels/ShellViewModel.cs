@@ -29,8 +29,22 @@
         {
             ShuffleCommand = new RelayCommand(ExecuteShuffleCommand, CanExecuteShuffleCommand);
             StopCommand = new RelayCommand(ExecuteStopCommand, CanExecuteStopCommand);
+            CheckCommnad = new RelayCommand(ExecuteCheckCommand);
+            BackCommand = new RelayCommand(ExecuteBackCommand);
             HitNumbers = dataStore.HitNumbers;
             _shuffleValues = new ShuffleValues(dataStore.Config.Shuffle.Minimum, dataStore.Config.Shuffle.Maximum, OnShufflingValue);
+        }
+
+        private void ExecuteBackCommand()
+        {
+            VisibleShuffleView = true;
+            VisibleHitNumbersView = false;
+        }
+
+        private void ExecuteCheckCommand()
+        {
+            VisibleShuffleView = false;
+            VisibleHitNumbersView = true;
         }
 
         #endregion
@@ -45,6 +59,10 @@
 
         public ICommand StopCommand { get; private set; }
 
+        public ICommand CheckCommnad { get; private set; }
+
+        public ICommand BackCommand { get; private set; }
+
         public bool Shuffling
         {
             get => _shuffling;
@@ -55,6 +73,24 @@
         {
             get => _currentNumber;
             private set => SetProperty(ref _currentNumber, value);
+        }
+        
+        private bool _visibleShuffleView = true;
+        
+        public bool VisibleShuffleView
+        {
+            get => _visibleShuffleView;
+            set => SetProperty(ref _visibleShuffleView, value);
+        }
+
+
+
+        private bool _visibleHitNumbersView;
+        
+        public bool VisibleHitNumbersView
+        {
+            get => _visibleHitNumbersView;
+            set => SetProperty(ref _visibleHitNumbersView, value);
         }
 
         #endregion
