@@ -12,19 +12,26 @@
     Width="300"
     Height="400"
     d:DataContext="{d:DesignInstance {x:Type viewModels:ShellViewModel}}"
-    FontFamily="Footlight MT Light"
-    ResizeMode="NoResize"
+    Background="{DynamicResource PrimaryHueMidBrush}"
+    FontFamily="Source Han Serif ExtraLight"
+    ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
     mc:Ignorable="d">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
             <Setter Property="FontSize" Value="36" />
             <Setter Property="Width" Value="160" />
             <Setter Property="Height" Value="62" />
             <Setter Property="Margin" Value="24,0" />
             <Setter Property="Padding" Value="12,8" />
+        </Style>
+        <Style TargetType="{x:Type materialDesign:Card}">
+            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
         </Style>
     </Window.Resources>
     <Grid>
@@ -36,6 +43,7 @@
         <Border
             x:Name="ShuffleButtonView"
             Grid.Row="2"
+            HorizontalAlignment="Center"
             Visibility="{Binding VisibleShuffleView, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
             <StackPanel Orientation="Horizontal">
                 <Button
@@ -52,33 +60,55 @@
                     Content="Check" />
             </StackPanel>
         </Border>
-        <Border
+        <Grid
             x:Name="HitNumbersButtonView"
             Grid.Row="2"
             Visibility="{Binding VisibleHitNumbersView, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
-            <StackPanel Orientation="Horizontal">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Button
                     Padding="12,4"
                     Command="{Binding BackCommand, Mode=OneWay}"
                     Content="Back" />
             </StackPanel>
-        </Border>
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <Button Command="{Binding NumbersFontSizeUpCommand}" Style="{DynamicResource MaterialDesignFloatingActionLightButton}">
+                    <materialDesign:PackIcon
+                        Width="32"
+                        Height="32"
+                        Kind="MagnifyPlus" />
+                </Button>
+                <Button
+                    Margin="18,0,0,0"
+                    Command="{Binding NumbersFontSizeDownCommand}"
+                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}">
+                    <materialDesign:PackIcon
+                        Width="32"
+                        Height="32"
+                        Kind="MagnifyMinus" />
+                </Button>
+            </StackPanel>
+        </Grid>
         <materialDesign:Card
             Grid.Row="1"
             Margin="12,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
             Visibility="{Binding VisibleShuffleView, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
-            <TextBox
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="122"
-                Text="{Binding CurrentNumber, Mode=OneWay, StringFormat=D2}" />
+            <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="{Binding CurrentNumber, Mode=OneWay, StringFormat=D2}" />
+            </Viewbox>
         </materialDesign:Card>
         <Border
             x:Name="HitNumbersView"
             Grid.Row="1"
             Margin="12,0"
             Visibility="{Binding VisibleHitNumbersView, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
-            <ListBox ItemsSource="{Binding HitNumbers, Mode=OneWay}">
+            <ListBox FontSize="{Binding NumbersFontSize, Mode=OneWay}" ItemsSource="{Binding HitNumbers, Mode=OneWay}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" />
@@ -86,8 +116,8 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <materialDesign:Card Padding="12">
-                            <TextBlock FontSize="32" Text="{Binding Number, StringFormat=D2}" />
+                        <materialDesign:Card Padding="24">
+                            <TextBlock Text="{Binding Number, StringFormat=D2}" />
                         </materialDesign:Card>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
