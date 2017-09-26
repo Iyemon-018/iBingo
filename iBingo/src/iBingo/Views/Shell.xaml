@@ -111,101 +111,147 @@
                 <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0" />
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
+        <Style
+            x:Key="CaptionButtonStyle"
+            BasedOn="{StaticResource MaterialDesignToolButton}"
+            TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="32" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="FontFamily" Value="Marlett" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        </Style>
     </Window.Resources>
-    <Grid>
-        <i:Interaction.Triggers>
-            <ei:DataTrigger Binding="{Binding VisibleHitNumbersView, Mode=OneWay}" Value="True">
-                <ei:ControlStoryboardAction Storyboard="{StaticResource HiddenShuffleViewStoryboard}" />
-            </ei:DataTrigger>
-            <ei:DataTrigger Binding="{Binding VisibleHitNumbersView, Mode=OneWay}" Value="False">
-                <ei:ControlStoryboardAction Storyboard="{StaticResource ShowShuffleViewStoryboard}" />
-            </ei:DataTrigger>
-            <ei:DataTrigger Binding="{Binding Shuffling, Mode=OneWay}" Value="False">
-                <ei:ControlStoryboardAction Storyboard="{StaticResource DecideValueStoryboard}" />
-            </ei:DataTrigger>
-        </i:Interaction.Triggers>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="54"
+            CornerRadius="3"
+            GlassFrameThickness="1"
+            ResizeBorderThickness="8" />
+    </WindowChrome.WindowChrome>
+    <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="100" />
+            <RowDefinition Height="54" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" MinHeight="100" />
         </Grid.RowDefinitions>
-        <Border
-            x:Name="ShuffleButtonView"
-            Grid.Row="2"
-            HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
+        <Grid Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}">
+            <Grid.Effect>
+                <DropShadowEffect
+                    BlurRadius="2"
+                    ShadowDepth="1"
+                    Color="#99E2E2E2" />
+            </Grid.Effect>
+            <TextBlock
+                Margin="9,9,24,9"
+                FontSize="24"
+                Text="iBingo" />
+            <StackPanel
+                Margin="0,8,8,9"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
                 <Button
-                    Padding="12,4"
-                    Command="{Binding ShuffleCommand, Mode=OneWay}"
-                    Content="Shuffle" />
-                <Button
-                    Padding="12,4"
-                    Command="{Binding StopCommand, Mode=OneWay}"
-                    Content="Stop" />
-                <Button
-                    Padding="12,4"
-                    Command="{Binding CheckCommnad, Mode=OneWay}"
-                    Content="Check" />
-            </StackPanel>
-        </Border>
-        <Grid x:Name="HitNumbersButtonView" Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Button
-                    Padding="12,4"
-                    Command="{Binding BackCommand, Mode=OneWay}"
-                    Content="Back" />
-            </StackPanel>
-            <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <Button Command="{Binding NumbersFontSizeUpCommand}" Style="{DynamicResource MaterialDesignFloatingActionLightButton}">
-                    <materialDesign:PackIcon
-                        Width="32"
-                        Height="32"
-                        Kind="MagnifyPlus" />
-                </Button>
-                <Button
-                    Margin="18,0,0,0"
-                    Command="{Binding NumbersFontSizeDownCommand}"
-                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}">
-                    <materialDesign:PackIcon
-                        Width="32"
-                        Height="32"
-                        Kind="MagnifyMinus" />
-                </Button>
+                    Command="{Binding CloseCommand, Mode=OneWay}"
+                    Content="r"
+                    Style="{DynamicResource CaptionButtonStyle}" />
             </StackPanel>
         </Grid>
-        <materialDesign:Card
-            x:Name="card"
-            Grid.Row="1"
-            Margin="12,0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
-            <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="textBlock" Text="{Binding CurrentNumber, Mode=OneWay, StringFormat=D2}" />
-            </Viewbox>
-        </materialDesign:Card>
-        <Border
-            x:Name="HitNumbersView"
-            Grid.Row="1"
-            Margin="12,0">
-            <ListBox FontSize="{Binding NumbersFontSize, Mode=OneWay}" ItemsSource="{Binding HitNumbers, Mode=OneWay}">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <materialDesign:Card Padding="24">
-                            <TextBlock Text="{Binding Number, StringFormat=D2}" />
-                        </materialDesign:Card>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Border>
+        <Grid Grid.Row="1">
+            <i:Interaction.Triggers>
+                <ei:DataTrigger Binding="{Binding VisibleHitNumbersView, Mode=OneWay}" Value="True">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource HiddenShuffleViewStoryboard}" />
+                </ei:DataTrigger>
+                <ei:DataTrigger Binding="{Binding VisibleHitNumbersView, Mode=OneWay}" Value="False">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource ShowShuffleViewStoryboard}" />
+                </ei:DataTrigger>
+                <ei:DataTrigger Binding="{Binding Shuffling, Mode=OneWay}" Value="False">
+                    <ei:ControlStoryboardAction Storyboard="{StaticResource DecideValueStoryboard}" />
+                </ei:DataTrigger>
+            </i:Interaction.Triggers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" MinHeight="100" />
+            </Grid.RowDefinitions>
+            <Border
+                x:Name="ShuffleButtonView"
+                Grid.Row="2"
+                HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Padding="12,4"
+                        Command="{Binding ShuffleCommand, Mode=OneWay}"
+                        Content="Shuffle" />
+                    <Button
+                        Padding="12,4"
+                        Command="{Binding StopCommand, Mode=OneWay}"
+                        Content="Stop" />
+                    <Button
+                        Padding="12,4"
+                        Command="{Binding CheckCommnad, Mode=OneWay}"
+                        Content="Check" />
+                </StackPanel>
+            </Border>
+            <Grid x:Name="HitNumbersButtonView" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button
+                        Padding="12,4"
+                        Command="{Binding BackCommand, Mode=OneWay}"
+                        Content="Back" />
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Button Command="{Binding NumbersFontSizeUpCommand}" Style="{DynamicResource MaterialDesignFloatingActionLightButton}">
+                        <materialDesign:PackIcon
+                            Width="32"
+                            Height="32"
+                            Kind="MagnifyPlus" />
+                    </Button>
+                    <Button
+                        Margin="18,0,0,0"
+                        Command="{Binding NumbersFontSizeDownCommand}"
+                        Style="{DynamicResource MaterialDesignFloatingActionLightButton}">
+                        <materialDesign:PackIcon
+                            Width="32"
+                            Height="32"
+                            Kind="MagnifyMinus" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <materialDesign:Card
+                x:Name="card"
+                Grid.Row="1"
+                Margin="12,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="textBlock" Text="{Binding CurrentNumber, Mode=OneWay, StringFormat=D2}" />
+                </Viewbox>
+            </materialDesign:Card>
+            <Border
+                x:Name="HitNumbersView"
+                Grid.Row="1"
+                Margin="12,0">
+                <ListBox FontSize="{Binding NumbersFontSize, Mode=OneWay}" ItemsSource="{Binding HitNumbers, Mode=OneWay}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:Card Padding="24">
+                                <TextBlock Text="{Binding Number, StringFormat=D2}" />
+                            </materialDesign:Card>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

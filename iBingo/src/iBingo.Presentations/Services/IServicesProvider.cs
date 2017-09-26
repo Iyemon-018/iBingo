@@ -2,6 +2,6 @@
 {
     public interface IServicesProvider
     {
-        
+        ISystemControlService SystemControlService { get; }
     }
 }

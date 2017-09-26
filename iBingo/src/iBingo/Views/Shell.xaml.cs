@@ -16,6 +16,7 @@ namespace iBingo.Views
 {
     using iBingo.Domains.Configurations;
     using iBingo.Presentations.Services;
+    using iBingo.Services;
     using iBingo.ViewModels;
 
     /// <summary>
@@ -28,7 +29,10 @@ namespace iBingo.Views
             InitializeComponent();
 
             // TODO ここはあとでConfig を読み込んで設定する。
-            DataContext = new ShellViewModel(null, null,
+            var servicesProvider = new ServicesProvider(new SystemControlService(() => Application.Current.Shutdown()));
+            var dialogService = new DialogService();
+            DataContext = new ShellViewModel(servicesProvider,
+                dialogService,
                 new DataStore(new ApplicationConfig { Shuffle = new ShuffleConfig { Minimum = 1, Maximum = 75, } }, null));
         }
     }

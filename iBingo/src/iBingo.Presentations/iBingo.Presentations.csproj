@@ -84,6 +84,9 @@
     <Compile Include="Services\IDataStore.cs" />
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\IServicesProvider.cs" />
+    <Compile Include="Services\ISystemControlService.cs" />
+    <Compile Include="Services\ServicesProvider.cs" />
+    <Compile Include="Services\SystemControlService.cs" />
     <Compile Include="Utility\ShuffleValues.cs" />
   </ItemGroup>
   <ItemGroup>
