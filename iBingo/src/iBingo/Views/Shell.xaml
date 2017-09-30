@@ -14,7 +14,6 @@
     Width="300"
     Height="400"
     d:DataContext="{d:DesignInstance {x:Type viewModels:ShellViewModel}}"
-    Background="{DynamicResource PrimaryHueMidBrush}"
     FontFamily="Source Han Serif ExtraLight"
     ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"
@@ -23,17 +22,14 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryAccentForegroundBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryAccentBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryAccentBrush}" />
             <Setter Property="FontSize" Value="36" />
             <Setter Property="Width" Value="160" />
             <Setter Property="Height" Value="62" />
             <Setter Property="Margin" Value="24,0" />
             <Setter Property="Padding" Value="12,8" />
-        </Style>
-        <Style TargetType="{x:Type materialDesign:Card}">
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
         </Style>
         <KeyTime x:Key="ViewChangeKeyTime">0:0:0.2</KeyTime>
         <Storyboard x:Key="HiddenShuffleViewStoryboard">
@@ -122,6 +118,7 @@
             <Setter Property="FontFamily" Value="Marlett" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         </Style>
     </Window.Resources>
     <WindowChrome.WindowChrome>
@@ -136,7 +133,7 @@
             <RowDefinition Height="54" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}">
+        <Grid Grid.Row="0" Background="{DynamicResource PrimaryHueDarkBrush}">
             <Grid.Effect>
                 <DropShadowEffect
                     BlurRadius="2"
@@ -146,6 +143,7 @@
             <TextBlock
                 Margin="9,9,24,9"
                 FontSize="24"
+                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
                 Text="iBingo" />
             <StackPanel
                 Margin="0,8,8,9"
