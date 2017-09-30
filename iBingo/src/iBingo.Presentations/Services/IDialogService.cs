@@ -16,5 +16,7 @@
         WarningChoice Warning(string caption, string message, WarningChoice defaultChoice);
 
         void Error(string caption, string message);
+
+        string OpenFile(string filter);
     }
 }

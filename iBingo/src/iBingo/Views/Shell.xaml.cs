@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace iBingo.Views
+﻿namespace iBingo.Views
 {
+    using System.ComponentModel;
+    using System.IO;
+    using System.Linq;
+    using System.Windows;
+    using iBingo.Domains;
     using iBingo.Domains.Configurations;
     using iBingo.Presentations.Services;
     using iBingo.Services;
@@ -24,6 +15,14 @@ namespace iBingo.Views
     /// </summary>
     public partial class Shell : Window
     {
+        #region Fields
+
+        private ShellViewModel _vm;
+
+        #endregion
+
+        #region Ctor
+
         public Shell()
         {
             InitializeComponent();
@@ -31,9 +30,23 @@ namespace iBingo.Views
             // TODO ここはあとでConfig を読み込んで設定する。
             var servicesProvider = new ServicesProvider(new SystemControlService(() => Application.Current.Shutdown()));
             var dialogService = new DialogService();
-            DataContext = new ShellViewModel(servicesProvider,
+            _vm = new ShellViewModel(servicesProvider,
                 dialogService,
-                new DataStore(new ApplicationConfig { Shuffle = new ShuffleConfig { Minimum = 1, Maximum = 75, } }, null));
+                new DataStore(new ApplicationConfig
+                {
+                    Shuffle = new ShuffleConfig
+                    { Minimum = 1, Maximum = 75 }
+                }, null));
+            DataContext = _vm;
+        }
+
+        #endregion
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+
+            _vm.SaveData();
         }
     }
 }

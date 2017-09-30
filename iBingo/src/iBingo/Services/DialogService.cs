@@ -1,8 +1,10 @@
 ﻿namespace iBingo.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Windows;
     using iBingo.Presentations.Services;
+    using Microsoft.Win32;
 
     public class DialogService : IDialogService
     {
@@ -39,6 +41,18 @@
         public void Error(string caption, string message)
         {
             MessageBox.Show(Application.Current.MainWindow, message, caption, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public string OpenFile(string filter)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Title = "ファイルを選択",
+                InitialDirectory = Environment.CurrentDirectory,
+                Filter = filter,
+            };
+            var result = dialog.ShowDialog();
+            return result.HasValue && result.Value ? dialog.FileName : null;
         }
     }
 }

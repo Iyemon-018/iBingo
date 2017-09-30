@@ -9,5 +9,10 @@
         {
             return new ObservableCollection<T>(self);
         }
+
+        public static void AddRange<T>(this ObservableCollection<T> self, IEnumerable<T> values)
+        {
+            foreach (var value in values) self.Add(value);
+        }
     }
 }

@@ -1,13 +1,19 @@
 ﻿namespace iBingo.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.IO;
+    using System.Linq;
     using System.Windows.Input;
     using iBingo.Commands;
+    using iBingo.Domains;
+    using iBingo.Domains.Extensions;
     using iBingo.Presentations.ComponentModels;
     using iBingo.Presentations.Models;
     using iBingo.Presentations.Services;
     using iBingo.Presentations.Utility;
+    using iBingo.Presentations.Extensions;
 
     public class ShellViewModel : WindowViewModelBase
     {
@@ -37,7 +43,7 @@
 
         private bool _visibleShuffleView = true;
 
-        private int _numbersFontSizeIndex = 0;
+        private int _numbersFontSizeIndex = 3;
 
         #endregion
 
@@ -54,10 +60,28 @@
             BackCommand = new RelayCommand(ExecuteBackCommand);
             NumbersFontSizeUpCommand = new RelayCommand(ExecuteNumbersFontSizeUpCommand);
             NumbersFontSizeDownCommand = new RelayCommand(ExecuteNumbersFontSizeDownCommand);
+            ReloadHistoryCommand = new RelayCommand(ExecuteReloadHistoryCommand);
 
             HitNumbers = dataStore.HitNumbers;
             _shuffleValues = new ShuffleValues(dataStore.Config.Shuffle.Minimum, dataStore.Config.Shuffle.Maximum, OnShufflingValue);
-            _numbersFontSize = 32.0;
+            _numbersFontSize = NumbersFontSizeMap[_numbersFontSizeIndex];
+        }
+
+        private void ExecuteReloadHistoryCommand()
+        {
+            var selectFileName = DialogService.OpenFile("CSV File(*.csv)|*.csv");
+            if (string.IsNullOrEmpty(selectFileName)) return;
+
+            var numbersText = File.ReadAllText(selectFileName);
+            if (string.IsNullOrEmpty(numbersText)) return;
+
+            var hitNumbers = numbersText.Split(',')
+                                        .Select(x => x.ToIntOrDefault())
+                                        .Where(x => x != null)
+                                        .Select(x => new NumberData(x.Value, true))
+                                        .ToArray();
+            HitNumbers.Clear();
+            HitNumbers.AddRange(hitNumbers);
         }
 
         #endregion
@@ -79,6 +103,8 @@
         public ICommand NumbersFontSizeUpCommand { get; private set; }
 
         public ICommand NumbersFontSizeDownCommand { get; private set; }
+
+        public ICommand ReloadHistoryCommand { get; private set; }
 
         public bool Shuffling
         {
@@ -171,6 +197,13 @@
         private void OnShufflingValue(int value)
         {
             CurrentNumber = value;
+        }
+
+        public void SaveData()
+        {
+            var history = string.Join(",", HitNumbers.Where(x => x.Hit).Select(x => x.Number.ToString()));
+            if (!Directory.Exists(Constants.HistoryDirectoryName)) Directory.CreateDirectory(Constants.HistoryDirectoryName);
+            File.WriteAllText(Constants.GetHistoryFileName(), history);
         }
 
         #endregion
