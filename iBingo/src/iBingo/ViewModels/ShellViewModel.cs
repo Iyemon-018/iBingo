@@ -5,6 +5,7 @@
     using System.Collections.ObjectModel;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Input;
     using iBingo.Commands;
     using iBingo.Domains;
@@ -69,7 +70,7 @@
 
         private void ExecuteReloadHistoryCommand()
         {
-            var selectFileName = DialogService.OpenFile("CSV File(*.csv)|*.csv");
+            var selectFileName = DialogService.OpenFile("CSV File(*.csv)|*.csv", Constants.HistoryDirectoryName);
             if (string.IsNullOrEmpty(selectFileName)) return;
 
             var numbersText = File.ReadAllText(selectFileName);
@@ -201,9 +202,10 @@
 
         public void SaveData()
         {
+            if (!HitNumbers.Any()) return;
             var history = string.Join(",", HitNumbers.Where(x => x.Hit).Select(x => x.Number.ToString()));
             if (!Directory.Exists(Constants.HistoryDirectoryName)) Directory.CreateDirectory(Constants.HistoryDirectoryName);
-            File.WriteAllText(Constants.GetHistoryFileName(), history);
+            File.WriteAllText(Constants.GetHistoryFileName, history);
         }
 
         #endregion

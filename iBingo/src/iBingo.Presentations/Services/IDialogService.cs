@@ -17,6 +17,6 @@
 
         void Error(string caption, string message);
 
-        string OpenFile(string filter);
+        string OpenFile(string filter, string initialDirectory);
     }
 }

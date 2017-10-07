@@ -43,12 +43,17 @@
             MessageBox.Show(Application.Current.MainWindow, message, caption, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        public string OpenFile(string filter)
+        public string OpenFile(string filter, string initialDirectory)
         {
+            if (string.IsNullOrWhiteSpace(initialDirectory))
+            {
+                initialDirectory = Environment.CurrentDirectory;
+            }
+
             var dialog = new OpenFileDialog
             {
                 Title = "ファイルを選択",
-                InitialDirectory = Environment.CurrentDirectory,
+                InitialDirectory = initialDirectory,
                 Filter = filter,
             };
             var result = dialog.ShowDialog();
