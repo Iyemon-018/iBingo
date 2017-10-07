@@ -33,12 +33,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0F602C8D9E2413BB797D6CB8DB1C8420"
-        "OwnerKey" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_1C6933919AEEA9602DD1FC442ADC030D"
         "OwnerKey" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
         "MsmSig" = "8:_UNDEFINED"
@@ -142,6 +136,12 @@
         "Entry"
         {
         "MsmKey" = "8:_315F3E645E9A313D5DDB065FD073F6BB"
+        "OwnerKey" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_33B6B4175927554F68EC0AA7442D06C2"
         "OwnerKey" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -345,20 +345,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_82A8CD9784184CACBCCDE3867C75E85D"
-        "OwnerKey" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_82A8CD9784184CACBCCDE3867C75E85D"
-        "OwnerKey" = "8:_0F602C8D9E2413BB797D6CB8DB1C8420"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_89F7DD78A1BA434B356179E5354D469E"
         "OwnerKey" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8DCCC812BB923541CE75A0BF0CE61CAB"
+        "OwnerKey" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8DCCC812BB923541CE75A0BF0CE61CAB"
+        "OwnerKey" = "8:_33B6B4175927554F68EC0AA7442D06C2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -502,7 +502,7 @@
         "Entry"
         {
         "MsmKey" = "8:_C15C78393BFE618E326B8DB5F29FB4CC"
-        "OwnerKey" = "8:_0F602C8D9E2413BB797D6CB8DB1C8420"
+        "OwnerKey" = "8:_33B6B4175927554F68EC0AA7442D06C2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -665,6 +665,18 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1C6933919AEEA9602DD1FC442ADC030D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_33B6B4175927554F68EC0AA7442D06C2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8DCCC812BB923541CE75A0BF0CE61CAB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -982,18 +994,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0F602C8D9E2413BB797D6CB8DB1C8420"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_82A8CD9784184CACBCCDE3867C75E85D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_77A41D73BB4C2C15CDE8CEF8E0687EE2"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1279,37 +1279,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0F602C8D9E2413BB797D6CB8DB1C8420"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:iBingo.Presentations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_0F602C8D9E2413BB797D6CB8DB1C8420"
-                    {
-                    "Name" = "8:iBingo.Presentations.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:iBingo.Presentations.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5746789731D0437ABFBBE7CE7E62C731"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1C6933919AEEA9602DD1FC442ADC030D"
             {
             "AssemblyRegister" = "3:1"
@@ -1572,6 +1541,37 @@
                     }
                 }
             "SourcePath" = "8:System.Reflection.Extensions.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5746789731D0437ABFBBE7CE7E62C731"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_33B6B4175927554F68EC0AA7442D06C2"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:iBingo.Presentations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_33B6B4175927554F68EC0AA7442D06C2"
+                    {
+                    "Name" = "8:iBingo.Presentations.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:iBingo.Presentations.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5746789731D0437ABFBBE7CE7E62C731"
@@ -2364,20 +2364,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_82A8CD9784184CACBCCDE3867C75E85D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_89F7DD78A1BA434B356179E5354D469E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:iBingo.Domains, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_82A8CD9784184CACBCCDE3867C75E85D"
+                    "_89F7DD78A1BA434B356179E5354D469E"
                     {
-                    "Name" = "8:iBingo.Domains.dll"
+                    "Name" = "8:MaterialDesignColors.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:iBingo.Domains.dll"
+            "SourcePath" = "8:MaterialDesignColors.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5746789731D0437ABFBBE7CE7E62C731"
@@ -2395,20 +2395,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_89F7DD78A1BA434B356179E5354D469E"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8DCCC812BB923541CE75A0BF0CE61CAB"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:iBingo.Domains, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_89F7DD78A1BA434B356179E5354D469E"
+                    "_8DCCC812BB923541CE75A0BF0CE61CAB"
                     {
-                    "Name" = "8:MaterialDesignColors.dll"
+                    "Name" = "8:iBingo.Domains.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MaterialDesignColors.dll"
+            "SourcePath" = "8:iBingo.Domains.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5746789731D0437ABFBBE7CE7E62C731"
@@ -3654,7 +3654,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_5746789731D0437ABFBBE7CE7E62C731"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -3679,9 +3679,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:iBingo.Setup"
+        "ProductName" = "8:iBingo"
         "ProductCode" = "8:{D273BDF9-4168-4455-977C-CB6DE104E38F}"
-        "PackageCode" = "8:{7C0BB542-C135-4297-B265-C9D5D3FA079E}"
+        "PackageCode" = "8:{B4279E0B-7878-4CEC-B615-C963F99B6A57}"
         "UpgradeCode" = "8:{EF493698-8955-4645-93B5-8CA9E015FD73}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -3801,6 +3801,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0E978D2C654943F48EF283478C2A4C12"
+            {
+            "Name" = "8:iBingo"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_45EF6878274242EDA24DA9E48C33F1FE"
+            "Folder" = "8:_3C821201A9814288AF4D1F92B61BB878"
+            "WorkingFolder" = "8:_5746789731D0437ABFBBE7CE7E62C731"
+            "Icon" = "8:_FA91939F94544A8EBBCE4175D7DA1ECD"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -4202,7 +4216,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_45EF6878274242EDA24DA9E48C33F1FE"
             {
-            "SourcePath" = "8:..\\..\\src\\iBingo\\obj\\Debug\\iBingo.exe"
+            "SourcePath" = "8:..\\..\\src\\iBingo\\obj\\Release\\iBingo.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5746789731D0437ABFBBE7CE7E62C731"
